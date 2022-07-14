@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+// our libraries
+import Footer from "./component/footer/Footer";
+import Main from "./component/main/Main";
+import Header from "./component/header/Header";
 
 function App() {
+  const date = new Date();
+  console.log(date);
+
+  const todayYear = date.getFullYear();
+  const myName = "Sojod & Katia & Fhme";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header mainHeading="Phone Book" />
+      <Main />
+      <Footer today={todayYear} myName={myName} />
     </div>
   );
 }

@@ -1,0 +1,100 @@
+.main p {
+  text-align: center;
+  color: black;
+}
+/*style for every line in the data*/
+.people {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  margin-bottom: 6rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-style: italic;
+  color: blueviolet;
+  margin-bottom: 0;
+}
+
+.delete {
+  grid-column: 7/8;
+}
+
+.edit {
+  grid-column: 8/9;
+}
+
+.show {
+  grid-column: 9/10;
+}
+
+article {
+  background-color: white;
+}
+/*for the book,and to do steicky footer */
+.all-main {
+  flex-grow: 1;
+  border: 1px solid black;
+  width: 900px;
+  height: 90%;
+}
+
+img {
+  width: 50%;
+  border-radius: 50%;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.search {
+  float: left;
+  padding: 5px;
+  font-size: 1rem;
+  margin: 12px;
+}
+
+button {
+  padding: 5px;
+  font-size: 1rem;
+  float: right;
+  margin: 12px;
+}
+
+/*overlay to the form */
+.overlay {
+  position: fixed;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+/* form attribute*/
+.container {
+  width: 600px;
+  background: rgba(185, 184, 184, 0.993);
+  height: 550px;
+  position: absolute;
+  justify-content: center;
+  visibility: hidden;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+h5 {
+  margin-left: 2rem;
+  font-style: italic;
+}

@@ -1,0 +1,40 @@
+form {
+  margin: 2rem;
+}
+
+.box {
+  font-size: 1.5rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+input,
+textarea {
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 1rem;
+  grid-column: 2 /4;
+}
+/*button submit */
+.submit {
+  grid-column: 1 /4;
+  margin-bottom: 2rem;
+  margin-right: 1px;
+}
+.buttonEdit {
+  grid-column: 1 /4;
+  margin-bottom: 2rem;
+  margin-right: 1px;
+  display: none;
+}
+/* exist from the form */
+.exit {
+  float: right;
+  margin: 13px;
+  padding: 3px;
+}
+
+h3 {
+  font-size: 2rem;
+}
