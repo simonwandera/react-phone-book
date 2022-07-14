@@ -9,8 +9,7 @@ function Details(props) {
         <button
           className="detailExit"
           onClick={() => {
-            document.querySelector(".details").style.visibility = "hidden";
-            document.querySelector(".overlay").style.visibility = "hidden";
+            console.log('You are exiting')
           }}
         >
           <AiOutlineClose />

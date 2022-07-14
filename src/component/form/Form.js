@@ -1,52 +1,47 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./form.css";
 import { AiOutlineClose } from "react-icons/ai";
 
-const DETAILS = {
-  name: "",
-  phone: "",
-  address: "",
-  age: "",
-  image: "",
-};
+const App =()=> {
+  const [details, setDetails] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    age: "",
+    image: "",
+  });
 
-class App extends Component {
-  state = DETAILS;
   //when we feild in the input
-  handleChange = e => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
+    // this.setState({
+    //   [name]: value,
+    // });
+    details.name = name.value
+    
   };
   //submit click
-  handleSubmit = e => {
-    e.preventDefault();
-
-    const { onAdd } = this.props;
-    onAdd(this.state);
-    this.restForm();
-    this.exit();
+  const handleSubmit = e => {
+    console.log('Submitting the form')
   };
-  //to hide the form and the popup
-  exit = () => {
-    document.querySelector(".overlay").style.visibility = "hidden";
-    document.querySelector(".container").style.visibility = "hidden";
+  // //to hide the form and the popup
+  const exit = () => {
+   console.log('Exiting')
   };
-  //to rest the form
-  restForm = () => {
-    this.setState(DETAILS);
-  };
+  // //to rest the form
+  // restForm = () => {
+  //   this.setState(DETAILS);
+  // };
   //form elemnts
-  render() {
+  {
     return (
       <div className="overlay">
         <div className="container">
-          <button className="exit" onClick={this.exit}>
+          <button className="exit" onClick={exit}>
             <AiOutlineClose />
           </button>
           <h3 className="title">Create Contact</h3>
-          <form className="form" onSubmit={this.handleSubmit}>
+          <form className="form" onSubmit={handleSubmit}>
             <div className="box">
               <label htmlFor="name">Name: *</label>
               <input
@@ -58,8 +53,8 @@ class App extends Component {
                 pattern="[a-zA-Z]{3-20}"
                 placeholder="Enter your name here"
                 required
-                onChange={this.handleChange}
-                value={this.state.name}
+                onChange={handleChange}
+                value={details.name}
                 name="name"
               />
             </div>
@@ -74,8 +69,8 @@ class App extends Component {
                 id="phone"
                 className="phoneE"
                 required
-                onChange={this.handleChange}
-                value={this.state.phone}
+                onChange={console.log('Changes')}
+                value={console.log("values")}
                 name="phone"
               />
             </div>
@@ -88,8 +83,8 @@ class App extends Component {
                 title="alphanumeric"
                 id="address"
                 className="addressE"
-                onChange={this.handleChange}
-                value={this.state.address}
+                onChange={console.log('changes')}
+                value={console.log('values')}
                 name="address"
               />
             </div>
@@ -102,8 +97,8 @@ class App extends Component {
                 title="alphanumeric"
                 id="age"
                 className="ageE"
-                onChange={this.handleChange}
-                value={this.state.age}
+                onChange={console.log('changes')}
+                value={console.log('values')}
                 name="age"
               />
             </div>
@@ -116,8 +111,8 @@ class App extends Component {
                 title="alphanumeric"
                 id="image"
                 className="imageE"
-                onChange={this.handleChange}
-                value={this.state.image}
+                onChange={console.log('changes')}
+                value={console.log('values')}
                 name="image"
               />
             </div>
@@ -126,8 +121,8 @@ class App extends Component {
               <input
                 className="submit"
                 type="submit"
-                onSubmit={this.handleSubmit}
-                value="Send"
+                onChange={console.log('changes')}
+                value={console.log('values')}
               />
               <button class="buttonEdit" type="button">
                 Edit

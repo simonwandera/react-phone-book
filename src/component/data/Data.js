@@ -7,7 +7,7 @@ import { BsPencilSquare } from "react-icons/bs";
 function Data(props) {
   const { peopleinfo } = props;
   const { name, image } = peopleinfo;
-//for each line in the list
+  //for each line in the list
   const code = (
     <div className="people">
       <figure className="image">
