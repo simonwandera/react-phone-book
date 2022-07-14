@@ -1,0 +1,5 @@
+{
+    "contacts": [
+      { "id": 1, "name": "json-server", "address": "typicode", "age": 23, "image":"image url" }
+    ]
+}
