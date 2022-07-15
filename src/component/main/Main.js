@@ -6,14 +6,16 @@ import Form from "../form/Form";
 import Details from "../details/details";
 import { AiFillDelete } from "react-icons/ai";
 import { BsFillPersonPlusFill } from "react-icons/bs";
+import useFetch from "../useFetch";
 
 const Main = ()=> {
-  const [list, setList]=useState([]);
+  const {data, isPending, error}= useFetch('http://localhost:8000/contacts');
+
   const [modalOpen, setModalOpen] = useState(false);
   const [] = useState(false);
   //to clear all the list
   const clearAll = () => {
-    setList([])
+    console.log("All are cleared")
   };
   //delet item from the list
   const deleteItem = item => {
@@ -89,7 +91,7 @@ const Main = ()=> {
   // };
 
  {
-    const newList = list.map(item => (
+    const newList = data && data.map(item => (
       <Data
         peopleinfo={item}
         key={item.name}
@@ -101,7 +103,7 @@ const Main = ()=> {
 
    return (
       <article className="all-main">
-        <h5>{list.length} People</h5>
+        <h5>{newList && newList.length} People</h5>
         <div className="nav">
           <input
             className="search"
@@ -121,7 +123,7 @@ const Main = ()=> {
             <BsFillPersonPlusFill />
           </button>
         </div>
-        {list}
+        {newList}
         {sort()}
 
         {modalOpen && <Form setOpenModal={setModalOpen}/>}

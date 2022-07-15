@@ -26,7 +26,7 @@ const Form = ({ setOpenModal }) => {
   };
   // //to hide the form and the popup
   const exit = () => {
-    console.log('Exiting')
+    setOpenModal(false)
   };
   // //to rest the form
   // restForm = () => {
