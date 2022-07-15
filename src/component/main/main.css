@@ -69,7 +69,7 @@ button {
 /*overlay to the form */
 .overlay {
   position: fixed;
-  visibility: hidden;
+  visibility: visible;
   width: 100%;
   height: 100%;
   top: 0;
@@ -87,7 +87,7 @@ button {
   height: 550px;
   position: absolute;
   justify-content: center;
-  visibility: hidden;
+  visibility: visible;
   top: 50%;
   left: 50%;
   text-align: center;

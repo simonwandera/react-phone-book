@@ -1,5 +1,8 @@
 {
     "contacts": [
-      { "id": 1, "name": "json-server", "address": "typicode", "age": 23, "image":"image url" }
+      { "id": 1, "name": "Yonah", "address": "typicode", "age": 23, "image":"image url" },
+      { "id": 2, "name": "Jorum", "address": "typicode", "age": 23, "image":"image url" },
+      { "id": 3, "name": "Nick", "address": "typicode", "age": 23, "image":"image url" },
+      { "id": 4, "name": "Abel", "address": "typicode", "age": 23, "image":"image url" }
     ]
 }

@@ -9,6 +9,8 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 
 const Main = ()=> {
   const [list, setList]=useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [] = useState(false);
   //to clear all the list
   const clearAll = () => {
     setList([])
@@ -18,13 +20,6 @@ const Main = ()=> {
     console.log('Delete all items');
   };
   //show the form and the overlay
-  const showForm = () => {
-    document.querySelector(".overlay").style.visibility = "visible";
-    document.querySelector(".container").style.visibility = "visible";
-    document.querySelector(".title").textContent = "Create Contact";
-    document.querySelector(".submit").style.display = "block";
-    document.querySelector(".buttonEdit").style.display = "none";
-  };
   //add new person to the list
   const addContact = newContact =>{
     console.log('Adding a new item')
@@ -122,14 +117,14 @@ const Main = ()=> {
           <button className="deleteall" onClick={clearAll}>
             <AiFillDelete />
           </button>
-          <button className="addpesron" onClick={console.log('Showing form')}>
+          <button className="addpesron" onClick={() => setModalOpen(true)}>
             <BsFillPersonPlusFill />
           </button>
         </div>
         {list}
         {sort()}
 
-        <Form onAdd={addContact} />
+        {modalOpen && <Form setOpenModal={setModalOpen}/>}
         <Details />
       </article>
 
