@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import "./form.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { useFormik } from 'formik'
 
 const Form = ({ setOpenModal }) => {
   const [details, setDetails] = useState({
@@ -29,10 +30,51 @@ const Form = ({ setOpenModal }) => {
     setOpenModal(false)
   };
   // //to rest the form
-  // restForm = () => {
-  //   this.setState(DETAILS);
-  // };
-  //form elemnts
+  const validate = values => {
+    const errors = {}
+
+    
+    console.log(errors)
+    return errors
+}
+
+const onSubmit = (values) => {
+  const name = values.name
+  const phone = values.phone
+
+  console.log(phone)
+
+  const val = {name, phone}
+  fetch('http://127.0.0.1:8000/contacts/', {
+      method: 'POST',
+      body: JSON.stringify(val),
+      headers: {"Contect-Type": "application/json; charset=UTF-8"}
+  }).then(responce => {
+      if (!responce.ok) {
+          alert("Failed to add")
+      }else{
+          alert("Contact added")
+      }
+      return responce.json();
+  }).then(data => {
+      console.log('Added')
+
+  })
+}
+
+const formik = useFormik({
+  initialValues:  {
+      name: '',
+      phone: '',
+      address: '',
+      age: '',
+      image: ''
+  },
+  validate,
+  onSubmit
+})
+
+
   {
     return (
       <div className="overlay">
@@ -47,15 +89,15 @@ const Form = ({ setOpenModal }) => {
               <label htmlFor="name">Name: *</label>
               <input
                 type="text"
-                placeholder="name"
+                placeholder="Enter your name here"
                 title="alphanumeric a-z"
                 id="name"
                 className="nameE"
                 pattern="[a-zA-Z]{3-20}"
-                placeholder="Enter your name here"
+                // placeholder="Enter your name here"
                 required
-                onChange={handleChange}
-                value={details.name}
+                onChange={formik.handleChange}
+                value={formik.values.name}
                 name="name"
               />
             </div>
@@ -70,8 +112,8 @@ const Form = ({ setOpenModal }) => {
                 id="phone"
                 className="phoneE"
                 required
-                onChange={console.log('Changes')}
-                value={console.log("values")}
+                onChange={formik.handleChange}
+                value={formik.values.phone}                
                 name="phone"
               />
             </div>
@@ -84,8 +126,8 @@ const Form = ({ setOpenModal }) => {
                 title="alphanumeric"
                 id="address"
                 className="addressE"
-                onChange={console.log('changes')}
-                value={console.log('values')}
+                onChange={formik.handleChange}
+                value={formik.values.address}
                 name="address"
               />
             </div>
@@ -98,8 +140,8 @@ const Form = ({ setOpenModal }) => {
                 title="alphanumeric"
                 id="age"
                 className="ageE"
-                onChange={console.log('changes')}
-                value={console.log('values')}
+                onChange={formik.handleChange}
+                value={formik.values.age}
                 name="age"
               />
             </div>
@@ -112,8 +154,8 @@ const Form = ({ setOpenModal }) => {
                 title="alphanumeric"
                 id="image"
                 className="imageE"
-                onChange={console.log('changes')}
-                value={console.log('values')}
+                onChange={formik.handleChange}
+                value={formik.values.image}
                 name="image"
               />
             </div>
@@ -121,9 +163,9 @@ const Form = ({ setOpenModal }) => {
             <div className="box">
               <input
                 className="submit"
-                type="submit"
-                onChange={console.log('changes')}
-                value={console.log('values')}
+                type="button"
+                onClick={formik.handleSubmit}
+                
               />
               <button class="buttonEdit" type="button">
                 Edit
