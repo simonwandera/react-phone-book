@@ -13,7 +13,7 @@ function App() {
   const myName = "Sojod & Katia & Fhme";
   return (
     <div className="app">
-      <Header mainHeading="Phone Book" />
+      <Header mainHeading="My phonebook" />
       <Main />
       <Footer today={todayYear} myName={myName} />
     </div>

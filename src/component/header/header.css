@@ -1,8 +1,11 @@
 header {
-  border-bottom: 5px solid black;
   margin-bottom: 1rem;
+  text-align: center;
+  color: blue;
 }
 h1 {
   text-align: center;
-  color: blue;
+  /* color: blue; */
+  color: #000f0f;
+
 }
