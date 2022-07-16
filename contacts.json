@@ -1,28 +1,19 @@
 {
-  "contacts": [
+  "posts": [
     {
       "id": 1,
-      "name": "Yonah",
-      "address": "typicode",
-      "age": 23,
-      "image": "https://static.independent.co.uk/2022/05/19/21/People_Rihanna_ASAP_Rocky_25326.jpg?quality=50&width=640&auto=webp"
-    },
-    {
-      "id": 2,
-      "name": "Jorum",
-      "address": "typicode",
-      "age": 23,
-      "image": "https://static.independent.co.uk/2022/05/19/21/People_Rihanna_ASAP_Rocky_25326.jpg?quality=50&width=640&auto=webp"
-    },
-    {
-      "id": 3,
-      "name": "Nick",
-      "address": "typicode",
-      "age": 23,
-      "image": "https://static.independent.co.uk/2022/05/19/21/People_Rihanna_ASAP_Rocky_25326.jpg?quality=50&width=640&auto=webp"
-    },
-    {
-      "id": 4
+      "title": "json-server",
+      "author": "typicode"
     }
-  ]
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

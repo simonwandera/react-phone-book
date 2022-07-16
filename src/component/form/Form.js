@@ -39,26 +39,17 @@ const Form = ({ setOpenModal }) => {
 }
 
 const onSubmit = (values) => {
-  const name = values.name
-  const phone = values.phone
-
-  console.log(phone)
-
-  const val = {name, phone}
-  fetch('http://127.0.0.1:8000/contacts/', {
+  console.log(values)
+  fetch('http://127.0.0.1:8000/contacts', {
       method: 'POST',
-      body: JSON.stringify(val),
-      headers: {"Contect-Type": "application/json; charset=UTF-8"}
+      // mode: 'cors',
+      headers: {"Contect-Type": "application/json"},
+      body: JSON.stringify(values),
   }).then(responce => {
-      if (!responce.ok) {
-          alert("Failed to add")
-      }else{
-          alert("Contact added")
-      }
-      return responce.json();
-  }).then(data => {
-      console.log('Added')
-
+    if(responce.ok){
+      alert('New contact added')
+    }
+     
   })
 }
 
@@ -84,7 +75,7 @@ const formik = useFormik({
             <AiOutlineClose />
           </button>
           <h3 className="title">Create Contact</h3>
-          <form className="form" onSubmit={handleSubmit}>
+          <form className="form" onSubmit={handleSubmit} encType='multipart/form-data'>
             <div className="box">
               <label htmlFor="name">Name: *</label>
               <input
